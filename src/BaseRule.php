@@ -2,8 +2,6 @@
 
 namespace Validator;
 
-require_once('Validator/Validator.php');
-
 abstract class BaseRule
 {
     protected static function rules(){}

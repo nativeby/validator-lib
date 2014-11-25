@@ -2,11 +2,10 @@
 
 namespace Validator;
 
-use Validator\Utils;
+use Validator\ValidatorUtil;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-require_once('Validator/Utils.php');
 
 class Validator
 {

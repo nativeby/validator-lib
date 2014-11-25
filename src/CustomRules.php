@@ -2,8 +2,6 @@
 
 namespace Validator;
 
-require_once('Validator/BaseRule.php');
-
 class CustomRules extends BaseRule
 {
     protected static function rules() {
