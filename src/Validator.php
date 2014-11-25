@@ -216,7 +216,7 @@ class Validator
             $parameters = $this->parseParameters($rule, $parameter);
         }
 
-        return array(Utils::studly($rule), $parameters);
+        return array(ValidatorUtil::studly($rule), $parameters);
     }
 
     /**
