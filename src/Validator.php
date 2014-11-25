@@ -227,9 +227,9 @@ class Validator
      */
     protected function getValue($attribute)
     {
-        if ( ! is_null($value = Utils::arrayGet($this->data, $attribute))) {
+        if ( ! is_null($value = ValidatorUtil::arrayGet($this->data, $attribute))) {
             return $value;
-        } elseif ( ! is_null($value = Utils::arrayGet($this->files, $attribute))) {
+        } elseif ( ! is_null($value = ValidatorUtil::arrayGet($this->files, $attribute))) {
             return $value;
         }
 
@@ -368,7 +368,7 @@ class Validator
      */
     protected function getMessage($attribute, $rule)
     {
-        $lowerRule = Utils::snake($rule);
+        $lowerRule = ValidatorUtil::snake($rule);
 
         $message = $this->getInlineMessage($attribute, $lowerRule);
 
@@ -454,7 +454,7 @@ class Validator
 
         $this->requireParameterCount(1, $parameters, 'same');
 
-        $other = Utils::arrayGet($this->data, $parameters[0]);
+        $other = ValidatorUtil::arrayGet($this->data, $parameters[0]);
 
         return (isset($other) && $value == $other);
     }
@@ -668,7 +668,7 @@ class Validator
         // is the size. If it is a file, we take kilobytes, and for a string the
         // entire length of the string will be considered the attribute size.
         if (is_numeric($value) && $hasNumeric) {
-            return Utils::arrayGet($this->data, $attribute);
+            return ValidatorUtil::arrayGet($this->data, $attribute);
         } elseif (is_array($value)) {
             return count($value);
         } elseif ($value instanceof File) {
@@ -1178,7 +1178,7 @@ class Validator
     {
         $this->requireParameterCount(2, $parameters, 'required_if');
 
-        if ($parameters[1] == Utils::arrayGet($this->data, $parameters[0])) {
+        if ($parameters[1] == ValidatorUtil::arrayGet($this->data, $parameters[0])) {
             return $this->validateRequired($attribute, $value);
         }
 
